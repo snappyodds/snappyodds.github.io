@@ -1,0 +1,47 @@
+# .github/workflows/deploy.yml
+name: Deploy Nuxt to GitHub Organization Page
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      # - name: Install tailwind-patch
+      #   run: npm run prepare
+
+      - name: Build Nuxt application (generate static files)
+        run: npm run generate
+
+      # --- ADD THIS STEP ---
+      - name: Add .nojekyll file
+        run: touch ./.output/public/.nojekyll # Create the .nojekyll file inside the publish directory
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./.output/public
+          publish_branch: gh-pages
+          keep_files: false
