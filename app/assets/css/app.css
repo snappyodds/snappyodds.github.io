@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Instrument Sans";
+  src: url("/fonts/InstrumentSans-Regular.woff2") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --default-font-family: "Instrument Sans", sans-serif;
+  /* Define custom brand colors for a premium look */
+  --color-snappy-gold: #fbbf24;
+  --color-snappy-gold-hover: #f59e0b;
+  --color-snappy-dark: #0f172a;
+  --color-snappy-darker: #020617;
+  --color-snappy-light: #f8fafc;
+  --color-snappy-card-light: #ffffff;
+  --color-snappy-card-dark: #1e293b;
+}
+
+@layer utilities {
+  /* Hide scrollbar for the carousel but keep functionality */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+
+/* body {
+  @apply bg-snappy-light text-slate-800 transition-colors duration-300;
+} */
+
+body {
+  @apply bg-snappy-darker text-slate-200 antialiased font-sans flex flex-col min-h-screen;
+}
+
+@layer base {
+  /* body, html {
+    @apply bg-mist-800 text-slate-200;
+  }
+  #__nuxt main{
+    @apply bg-gray-800;
+  } */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0px 1000px oklab(98.688% -0.00197 0.0212 / 0) inset !important;
+    -webkit-text-fill-color: transparent !important;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+
+  a.active {
+    @apply capitalize border-b-3 border-cyan-600;
+  }
+  a.active-mobile {
+    @apply text-cyan-600 capitalize;
+  }
+}
