@@ -4,7 +4,7 @@ name: Deploy Nuxt to GitHub Organization Page
 on:
   push:
     branches:
-      - main
+      - dev
   workflow_dispatch:
 
 permissions:

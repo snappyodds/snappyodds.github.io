@@ -17,7 +17,7 @@
                         <span class="text-transparent bg-clip-text bg-linear-to-r from-snappy-gold to-orange-500">Not
                               Harder.</span>
                   </h1>
-                  <p class="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-10">
+                  <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-10">
                         Stop guessing. Start investing. Get access to highly analyzed free
                         daily betting odds, or upgrade to VIP for premium insights, deep AI
                         analytics, and massive accumulators.
