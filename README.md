@@ -1,0 +1,1 @@
+## The Official Snappy Odds Website hosted on GitHub Pages
